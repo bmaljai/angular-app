@@ -1,3 +1,35 @@
 <div ng-app="app">
-{{1+1}}
+  <div ng-controller="exampleCtrl">
+    <div><input ng-model = "message">{{message}}</div>
+    <div><input ng-model = "task1">{{task1}}</div>
+    <div><input ng-model = "task2">{{task2}}</div>
+    <div><input ng-model = "task3">{{task3}}</div>
+
+    <div>
+      <h2>Reviews</h2>
+      <ul>
+        <li ng-repeat = "object in reviews track by $index">
+          Rating: {{object.score}}
+          <input ng-model="object.text">
+          <p ng-if = "ifPositive(object)">{{object.text}}</p>
+          <button ng-click = "finishTask($index)">Complete</button>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Add Review:</h2>
+      <div>Review Text:
+        <input ng-model = "revText">
+      </div>
+      <div>Review Score:
+        <input ng-model = "revScore">
+      </div>
+      <div>Review Person:
+        <input ng-model = "revPerson">
+      </div>
+      <button ng-click="addReview(revText, revScore, revPerson)">{{task3}}</button>
+    </div>
+
+  </div>
 </div>
